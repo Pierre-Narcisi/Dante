@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:18:59 2017 Axel Vandenabeele
-** Last update Thu Apr 20 15:06:19 2017 Axel Vandenabeele
+** Last update Tue Apr 25 17:06:11 2017 Pierre Narcisi
 */
 
 #include "my.h"
@@ -32,7 +32,9 @@ void 	generator(char **av, t_tools* tools)
 		}
 		lines++;
 	}
-	//algo(tools);
+	(void)av;
+	algo(tools);
+	print_tab(tools->maze);
 }
 
 t_tools	*set_struct(char **av)
@@ -60,5 +62,6 @@ int	main(int ac, char **av)
 		return (84);
 	tools = set_struct(av);
 	generator(av, tools);
+	(void)av;
 	return (0);
 }

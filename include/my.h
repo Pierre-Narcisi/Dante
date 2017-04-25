@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:23:31 2017 Axel Vandenabeele
-** Last update Thu Apr 20 14:28:45 2017 Axel Vandenabeele
+** Last update Tue Apr 25 16:51:15 2017 Pierre Narcisi
 */
 
 #ifndef MY_H
@@ -15,6 +15,12 @@
 #include <fcntl.h>
 #include <stdio.h>
 
+typedef struct	s_pos
+{
+	int	x;
+	int y;
+}								t_pos;
+
 typedef struct	s_tools
 {
 	char	**maze;
@@ -23,6 +29,13 @@ typedef struct	s_tools
 	int		visit;
 	int		last;
 }								t_tools;
+
+typedef struct	s_list
+{
+	struct s_list *next;
+	struct s_list *prev;
+	t_pos	pos;
+}								t_list;
 
 /*
 my_is.c
@@ -38,6 +51,6 @@ void 	print_tab(char **tab);
 /*
 algo.c
 */
-
+void algo(t_tools *tools);
 
 #endif /*MY_H*/

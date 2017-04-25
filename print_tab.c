@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Mar 26 00:15:38 2017 Axel Vandenabeele
-** Last update Thu Apr 20 13:01:34 2017 Axel Vandenabeele
+** Last update Tue Apr 25 17:17:35 2017 Pierre Narcisi
 */
 
 #include "my.h"
@@ -20,4 +20,5 @@ void 	print_tab(char **tab)
 		printf("%s\n", tab[i]);
 		i++;
 	}
+	printf("\n\n\n");
 }
