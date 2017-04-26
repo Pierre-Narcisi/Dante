@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:23:31 2017 Axel Vandenabeele
-** Last update Tue Apr 25 16:51:15 2017 Pierre Narcisi
+** Last update Wed Apr 26 13:51:52 2017 Axel Vandenabeele
 */
 
 #ifndef MY_H
@@ -41,7 +41,6 @@ typedef struct	s_list
 my_is.c
 */
 int	my_isnum(char *str);
-int	my_strlen(char *str);
 
 /*
 print_tab.c
@@ -52,5 +51,24 @@ void 	print_tab(char **tab);
 algo.c
 */
 void algo(t_tools *tools);
+
+/*
+solver.c
+*/
+
+/*
+generator.c
+*/
+void 	generator(char **av, t_tools* tools);
+
+/*
+structs.c
+*/
+t_tools	*set_struct(char **av);
+
+/*
+my_strlen.c
+*/
+int	my_strlen(char *str);
 
 #endif /*MY_H*/

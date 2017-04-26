@@ -5,7 +5,7 @@
 ## Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 ##
 ## Started on  Mon Jan 16 10:14:39 2017 Axel Vandenabeele
-## Last update Thu Apr 20 14:28:18 2017 Axel Vandenabeele
+## Last update Wed Apr 26 13:50:46 2017 Axel Vandenabeele
 ##
 
 NAME	=	generator
@@ -14,10 +14,13 @@ CC	=	gcc
 
 RM =		rm -f
 
-SRCS	=	generator.c \
+SRCS	=	main.c \
+				generator.c \
 				my_is.c \
 				print_tab.c \
 				algo.c \
+				structs.c \
+				my_strlen.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

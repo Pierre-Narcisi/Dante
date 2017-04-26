@@ -5,20 +5,10 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr  5 21:37:32 2017 Axel Vandenabeele
-** Last update Thu Apr 20 14:22:09 2017 Axel Vandenabeele
+** Last update Wed Apr 26 13:47:56 2017 Axel Vandenabeele
 */
 
 #include "my.h"
-
-int	my_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 int	my_isnum(char *str)
 {
