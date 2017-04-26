@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 14:28:04 2017 Axel Vandenabeele
-** Last update Tue Apr 25 17:57:01 2017 Pierre Narcisi
+** Last update Wed Apr 26 15:26:54 2017 Pierre Narcisi
 */
 
 #include "my.h"
@@ -13,17 +13,13 @@
 
 int check_wall(t_tools *tools, t_pos pos)
 {
-	if (pos.x + 2 <= tools->x)
-		if (tools->maze[pos.y][pos.x + 2] == 'X')
+	if (pos.x + 2 < tools->x && tools->maze[pos.y][pos.x + 2] == 'X')
 			return (0);
-	if (pos.x - 2 > 0)
-		if (tools->maze[pos.y][pos.x - 2] == 'X')
+	if (pos.x - 2 >= 0 && tools->maze[pos.y][pos.x - 2] == 'X')
 			return (2);
-	if (pos.y + 2 < tools->y)
-		if (tools->maze[pos.y + 2][pos.x] == 'X')
+	if (pos.y + 2 < tools->y && tools->maze[pos.y + 2][pos.x] == 'X')
 			return (3);
-	if (pos.y - 2 > tools->x)
-		if (tools->maze[pos.y - 2][pos.x] == 'X')
+	if (pos.y - 2 >= 0 && tools->maze[pos.y - 2][pos.x] == 'X')
 			return (1);
 	return (-1);
 }
@@ -49,7 +45,6 @@ t_pos choose_pos(t_pos pos, t_tools *tools)
 	while (bol == 0)
 		{
 			dir = rand() % 4;
-			printf("%d\n", dir);
 			if (dir == 0)
 				{
 					if (pos.x + 2 < tools->x && tools->maze[pos.y][pos.x + 2] == 'X')
@@ -115,6 +110,19 @@ void generate(t_pos pos, t_tools *tools, t_list *list)
 		}
 }
 
+void find_exit(t_tools *tools)
+{
+	t_pos pos;
+
+	pos.x = tools->x - 1;
+	pos.y = tools->y - 1;
+	if (tools->maze[pos.y][pos.x] != '*')
+		{
+			tools->maze[pos.y][pos.x] = '*';
+			tools->maze[pos.y][pos.x - 1] = '*';
+		}
+}
+
 void 	algo(t_tools *tools)
 {
 	t_pos pos;
@@ -124,4 +132,5 @@ void 	algo(t_tools *tools)
 	pos.y = 0;
 	list = create_node(pos, NULL);
 	generate(pos, tools, list);
+	find_exit(tools);
 }
