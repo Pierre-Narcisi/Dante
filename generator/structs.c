@@ -5,12 +5,12 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Wed Apr 26 13:46:12 2017 Axel Vandenabeele
-** Last update Wed Apr 26 13:46:36 2017 Axel Vandenabeele
+** Last update Thu Apr 27 15:14:50 2017 Pierre Narcisi
 */
 
 #include "my.h"
 
-t_tools	*set_struct(char **av)
+t_tools	*set_struct(char **av, int ac)
 {
 	t_tools* tools;
 
@@ -20,6 +20,10 @@ t_tools	*set_struct(char **av)
 		exit (84);
 	if (my_isnum(av[2]) == 1)
 		exit (84);
+	else if (ac == 4 && strcmp(av[3], "perfect") == 0)
+		tools->p = 1;
+	else
+			tools->p = 0;
 	tools->x = atoi(av[1]);
 	tools->y = atoi(av[2]);
 	return (tools);

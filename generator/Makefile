@@ -5,7 +5,7 @@
 ## Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 ##
 ## Started on  Mon Jan 16 10:14:39 2017 Axel Vandenabeele
-## Last update Wed Apr 26 13:50:46 2017 Axel Vandenabeele
+## Last update Thu Apr 27 17:31:35 2017 Pierre Narcisi
 ##
 
 NAME	=	generator
@@ -21,10 +21,11 @@ SRCS	=	main.c \
 				algo.c \
 				structs.c \
 				my_strlen.c \
+				check_gen.c	\
 
 OBJS	=	$(SRCS:.c=.o)
 
-CFLAGS	=	-W -Wall -Werror -Wextra -I./include -g
+CFLAGS	=	-W -Wall -Werror -Wextra -I../include -g
 
 all	:	$(NAME)
 
