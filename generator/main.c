@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Wed Apr 26 13:49:34 2017 Axel Vandenabeele
-** Last update Thu Apr 27 15:15:07 2017 Pierre Narcisi
+** Last update Thu Apr 27 18:36:15 2017 Axel Vandenabeele
 */
 
 #include "my.h"
@@ -22,6 +22,6 @@ int	main(int ac, char **av)
 
 	pre_requis(ac);
 	tools = set_struct(av, ac);
-	generator(av, tools);
+	generator(tools);
 	return (0);
 }

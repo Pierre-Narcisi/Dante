@@ -63,7 +63,7 @@ generator.c
 */
 void find_exit(t_tools *tools);
 int check_wall(t_tools *tools, t_pos pos);
-void 	generator(char **av, t_tools* tools);
+void 	generator(t_tools* tools);
 void choose_pos(t_pos *pos, t_tools *tools);
 
 /*
