@@ -5,10 +5,10 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 14:28:04 2017 Axel Vandenabeele
-** Last update Thu Apr 27 18:04:03 2017 Pierre Narcisi
+** Last update Fri Apr 28 16:49:20 2017 Pierre Narcisi
 */
 
-#include "my.h"
+#include "generator.h"
 #include <time.h>
 
 t_list *create_node(t_pos pos, t_list *node)

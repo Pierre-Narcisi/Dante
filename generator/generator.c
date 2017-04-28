@@ -5,10 +5,10 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:18:59 2017 Axel Vandenabeele
-** Last update Thu Apr 27 18:35:36 2017 Axel Vandenabeele
+** Last update Fri Apr 28 16:49:31 2017 Pierre Narcisi
 */
 
-#include "my.h"
+#include "generator.h"
 
 void 	generator(t_tools* tools)
 {

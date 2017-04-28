@@ -5,10 +5,10 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Apr  5 21:37:32 2017 Axel Vandenabeele
-** Last update Wed Apr 26 13:47:56 2017 Axel Vandenabeele
+** Last update Fri Apr 28 16:49:49 2017 Pierre Narcisi
 */
 
-#include "my.h"
+#include "generator.h"
 
 int	my_isnum(char *str)
 {

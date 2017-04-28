@@ -5,10 +5,10 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Mar 26 00:15:38 2017 Axel Vandenabeele
-** Last update Wed Apr 26 14:00:43 2017 Pierre Narcisi
+** Last update Fri Apr 28 16:50:06 2017 Pierre Narcisi
 */
 
-#include "my.h"
+#include "generator.h"
 
 void 	print_tab(char **tab)
 {

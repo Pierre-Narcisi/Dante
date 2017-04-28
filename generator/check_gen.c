@@ -5,10 +5,10 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Thu Apr 27 17:12:47 2017 Pierre Narcisi
-** Last update Thu Apr 27 18:02:59 2017 Pierre Narcisi
+** Last update Fri Apr 28 16:49:21 2017 Pierre Narcisi
 */
 
-#include "my.h"
+#include "generator.h"
 
 void find_exit(t_tools *tools)
 {

@@ -5,10 +5,10 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Wed Apr 26 13:47:36 2017 Axel Vandenabeele
-** Last update Wed Apr 26 13:47:59 2017 Axel Vandenabeele
+** Last update Fri Apr 28 16:49:59 2017 Pierre Narcisi
 */
 
-#include "my.h"
+#include "generator.h"
 
 int	my_strlen(char *str)
 {
