@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Fri Apr 28 15:32:57 2017 Axel Vandenabeele
-** Last update Sat Apr 29 17:36:22 2017 Axel Vandenabeele
+** Last update Sat Apr 29 23:37:18 2017 Axel Vandenabeele
 */
 
 #ifndef AFFICHER_H
@@ -13,8 +13,8 @@
 
 #define SCREEN_WIDTH 1920
 #define SCREEN_HEIGHT 1080
-#define MAZE_X 100
-#define MAZE_Y 100
+#define MAZE_X 50
+#define MAZE_Y 50
 #define ABS(x) (((x) > 0) ? (x) : (-(x)))
 #define MIN(x, y) ((x) > (y)) ? (y) : (x)
 
