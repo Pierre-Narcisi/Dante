@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:23:31 2017 Axel Vandenabeele
-** Last update Thu Apr 27 17:39:57 2017 Pierre Narcisi
+** Last update Fri Apr 28 14:55:37 2017 Axel Vandenabeele
 */
 
 #ifndef MY_H
@@ -15,6 +15,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <stdio.h>
+#include <unistd.h>
 
 typedef struct	s_pos
 {
@@ -75,5 +76,10 @@ t_tools	*set_struct(char **av, int ac);
 my_strlen.c
 */
 int	my_strlen(char *str);
+
+/*
+fill_files
+*/
+void 	fill_file(int op, t_tools* tools);
 
 #endif /*MY_H*/

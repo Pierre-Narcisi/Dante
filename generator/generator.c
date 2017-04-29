@@ -5,18 +5,32 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:18:59 2017 Axel Vandenabeele
-** Last update Thu Apr 27 18:35:36 2017 Axel Vandenabeele
+** Last update Fri Apr 28 14:59:52 2017 Axel Vandenabeele
 */
 
 #include "my.h"
+
+void 	fill_file(int op, t_tools* tools)
+{
+	int	lines;
+
+	lines = 0;
+	while (tools->maze[lines])
+	{
+		write(op, tools->maze[lines], my_strlen(tools->maze[lines]));
+		write(op, "\n", 1);
+		lines++;
+	}
+}
 
 void 	generator(t_tools* tools)
 {
 	int	lines;
 	int	x;
+	int	op;
 
 	lines = 0;
-	if ((open("maze.txt", O_CREAT | O_TRUNC | O_RDWR, 0666)) == -1)
+	if (( op = open("maze.txt", O_CREAT | O_TRUNC | O_RDWR, 0666)) == -1)
 		exit (84);
 	if ((tools->maze = malloc(sizeof(char *) * (tools->y + 1))) == NULL)
 		exit (84);
@@ -34,5 +48,6 @@ void 	generator(t_tools* tools)
 		lines++;
 	}
 	algo(tools);
+	fill_file(op, tools);
 	print_tab(tools->maze);
 }
