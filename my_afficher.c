@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Fri Apr 28 18:10:44 2017 Axel Vandenabeele
-** Last update Sat Apr 29 12:04:52 2017 Axel Vandenabeele
+** Last update Sat Apr 29 17:45:33 2017 Axel Vandenabeele
 */
 
 #include "afficher.h"
@@ -47,29 +47,32 @@ void  	my_draw_line(t_my_framebuffer* fb, sfVector2i from,
 		my_put_pixel(fb, to.x, to.y, color);
 }
 
-void 	draw_square(t_my_framebuffer* fb, int x, int y, int size, sfColor color)
+void 	draw_square(t_my_framebuffer* fb, t_size* size, sfColor color)
 {
 	int	lines;
 	int	cols;
 	int	x_tmp;
+	int	y_tmp;
 
-	if (x < 5 && y < 5)
+	if (size->pass == 0)
 		color = sfGreen;
-	if (x > MAZE_X * size - size * 2 && y > MAZE_Y * size - size * 2)
-		color = sfRed;
 	lines = 0;
-	x_tmp = x;
-	while (lines < size)
+	y_tmp = size->width;
+	x_tmp = size->height;
+	while (lines < size->size)
 	{
 		cols = 0;
-		x = x_tmp;
-		while (cols < size)
+		size->height = x_tmp;
+		while (cols < size->size)
 		{
-			my_put_pixel(fb, x, y, color);
-			x++;
+			my_put_pixel(fb, size->height, size->width, color);
+			size->height++;
 			cols++;
 		}
-		y++;
+		size->width++;
 		lines++;
 	}
+	size->height = x_tmp;
+	size->width = y_tmp;
+	size->pass++;
 }

@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Fri Apr 28 15:32:57 2017 Axel Vandenabeele
-** Last update Sat Apr 29 16:40:18 2017 Axel Vandenabeele
+** Last update Sat Apr 29 17:36:22 2017 Axel Vandenabeele
 */
 
 #ifndef AFFICHER_H
@@ -34,6 +34,9 @@ typedef struct	s_size
 {
 	int	width;
 	int	height;
+	int color;
+	int size;
+	int	pass;
 }								t_size;
 
 /*
@@ -50,7 +53,9 @@ char	*my_realloc(char *str, int i);
 /*
 make_render.c
 */
-void 	make_render(t_my_framebuffer* fb);
+void 	make_render(t_my_framebuffer* fb, t_size* size);
+t_size	*set_size();
+void 	reset_size(t_size* size);
 
 /*
 my_affiche.c
@@ -58,6 +63,6 @@ my_affiche.c
 void  	my_draw_line(t_my_framebuffer* fb, sfVector2i from,
                     sfVector2i to, sfColor color);
 void    my_put_pixel(t_my_framebuffer* fb, int x, int y, sfColor color);
-void 	draw_square(t_my_framebuffer* fb, int x, int y, int size, sfColor color);
+void 	draw_square(t_my_framebuffer* fb, t_size* size, sfColor color);
 
 #endif /*AFFICHER_H*/

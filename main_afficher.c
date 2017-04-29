@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Dec 28 01:14:23 2016 Axel Vandenabeele
-** Last update Sat Apr 29 16:46:34 2017 Axel Vandenabeele
+** Last update Sat Apr 29 17:45:02 2017 Axel Vandenabeele
 */
 
 #include "afficher.h"
@@ -69,7 +69,9 @@ int									main()
   sfTexture*				texture;
   sfSprite*					sprite;
   t_my_framebuffer*	fb;
+	t_size*	size;
 
+	size = set_size();
   window = create_window("Generator", SCREEN_WIDTH, SCREEN_HEIGHT);
   sprite = sfSprite_create();
   texture = sfTexture_create(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -78,7 +80,11 @@ int									main()
   while (sfRenderWindow_isOpen(window))
   	{
 			main_while(fb, texture, sprite, window);
-			make_render(fb);
+			make_render(fb, size);
+			size->width -= size->size;
+			size->height -= size->size;
+			draw_square(fb, size, sfRed);
+			reset_size(size);
 			usleep(50000);
   	}
   sfRenderWindow_destroy(window);
