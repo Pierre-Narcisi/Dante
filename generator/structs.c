@@ -5,10 +5,10 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Wed Apr 26 13:46:12 2017 Axel Vandenabeele
-** Last update Thu Apr 27 15:14:50 2017 Pierre Narcisi
+** Last update Fri Apr 28 16:50:22 2017 Pierre Narcisi
 */
 
-#include "my.h"
+#include "generator.h"
 
 t_tools	*set_struct(char **av, int ac)
 {
