@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Fri Apr 28 14:30:51 2017 Axel Vandenabeele
-** Last update Sat Apr 29 23:36:53 2017 Axel Vandenabeele
+** Last update Tue May  2 16:32:54 2017 Axel Vandenabeele
 */
 
 #include "afficher.h"
@@ -13,7 +13,7 @@
 void 	reset_size(t_size* size)
 {
 	size->pass = 0;
-	size-> height = SCREEN_HEIGHT / 2 - MAZE_Y / 2;
+	size-> height = 0;
 	size->width = 0;
 }
 
@@ -22,14 +22,12 @@ t_size	*set_size()
 	int size2;
 	t_size	*size;
 
-	//my_printf("%i\n", SCREEN_HEIGHT / 2 - MAZE_Y / 2);
-	//exit (0);
 	if (!(size = malloc(sizeof(char))))
 		exit (84);
 	size->size = SCREEN_HEIGHT / MAZE_Y;
 	size2 = SCREEN_WIDTH / MAZE_X;
 	size->size = MIN(size->size, size2);
-	size->height = SCREEN_HEIGHT / 2 - MAZE_Y / 2;
+	size->height = 0;
 	size->pass = 0;
 	return (size);
 }

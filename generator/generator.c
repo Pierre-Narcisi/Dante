@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:18:59 2017 Axel Vandenabeele
-** Last update Fri Apr 28 16:49:31 2017 Pierre Narcisi
+** Last update Sun Apr 30 16:24:46 2017 Axel Vandenabeele
 */
 
 #include "generator.h"
@@ -30,7 +30,7 @@ void 	generator(t_tools* tools)
 	int	op;
 
 	lines = 0;
-	if (( op = open("maze.txt", O_CREAT | O_TRUNC | O_RDWR, 0666)) == -1)
+	if ((op = open("maze.txt", O_CREAT | O_TRUNC | O_RDWR, 0666)) == -1)
 		exit (84);
 	if ((tools->maze = malloc(sizeof(char *) * (tools->y + 1))) == NULL)
 		exit (84);
