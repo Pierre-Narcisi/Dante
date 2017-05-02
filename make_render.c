@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Fri Apr 28 14:30:51 2017 Axel Vandenabeele
-** Last update Sat Apr 29 23:36:53 2017 Axel Vandenabeele
+** Last update Sun Apr 30 16:03:56 2017 Axel Vandenabeele
 */
 
 #include "afficher.h"
@@ -22,8 +22,6 @@ t_size	*set_size()
 	int size2;
 	t_size	*size;
 
-	//my_printf("%i\n", SCREEN_HEIGHT / 2 - MAZE_Y / 2);
-	//exit (0);
 	if (!(size = malloc(sizeof(char))))
 		exit (84);
 	size->size = SCREEN_HEIGHT / MAZE_Y;

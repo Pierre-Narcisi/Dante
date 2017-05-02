@@ -13,8 +13,8 @@
 
 #define SCREEN_WIDTH 1920
 #define SCREEN_HEIGHT 1080
-#define MAZE_X 50
-#define MAZE_Y 50
+#define MAZE_X 11
+#define MAZE_Y 11
 #define ABS(x) (((x) > 0) ? (x) : (-(x)))
 #define MIN(x, y) ((x) > (y)) ? (y) : (x)
 
