@@ -5,16 +5,16 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Fri Apr 28 15:32:57 2017 Axel Vandenabeele
-** Last update Tue May  2 16:31:33 2017 Axel Vandenabeele
+** Last update Sat Apr 29 23:37:18 2017 Axel Vandenabeele
 */
 
 #ifndef AFFICHER_H
 # define AFFICHER_H
 
-#define MAZE_X 50
-#define MAZE_Y 50
-#define SCREEN_WIDTH MAZE_X * 10
-#define SCREEN_HEIGHT MAZE_Y * 10
+#define SCREEN_WIDTH 
+#define SCREEN_HEIGHT 1080
+#define MAZE_X 11
+#define MAZE_Y 11
 #define ABS(x) (((x) > 0) ? (x) : (-(x)))
 #define MIN(x, y) ((x) > (y)) ? (y) : (x)
 
