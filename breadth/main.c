@@ -5,7 +5,7 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 15:54:25 2017 Pierre Narcisi
-** Last update Fri Apr 28 17:45:25 2017 Pierre Narcisi
+** Last update Tue May  2 16:19:10 2017 Pierre Narcisi
 */
 
 #include "breadth.h"
@@ -22,6 +22,8 @@ int main(int ac, char **av)
     {
       parsing(av[1], tools);
       algo(tools);
+      munmap(tools->map, tools->len);
     }
+    free(tools);
   return (0);
 }

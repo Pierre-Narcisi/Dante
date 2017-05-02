@@ -5,15 +5,14 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 17:27:26 2017 Pierre Narcisi
-** Last update Tue May  2 15:38:22 2017 Pierre Narcisi
+** Last update Tue May  2 16:30:59 2017 Pierre Narcisi
 */
 
 #include "breadth.h"
 
 void add_to_tail(t_tools *tools, int i)
 {
-	printf("%d\n", i);
-	tools->map[i] = 'G';
+	tools->map[i] = '+';
 	tools->tail[tools->tail_size] = i;
 	tools->tail_size++;
 }
@@ -47,13 +46,26 @@ void check_wall(t_tools *tools, int i, int *index)
 		}
 }
 
+void trace_path(t_tools *tools, int *index)
+{
+	int i;
+
+	tools->map[tools->len - 1] = 'o';
+	i = tools->len - 1;
+	while (i != 0)
+	{
+		i = index[i];
+		tools->map[i] = 'o';
+	}
+}
+
 int algo(t_tools *tools)
 {
 	int *index;
 
 	if (!(index = malloc (tools->len * sizeof(int))))
 		return (84);
-	tools->map[0] = 'G';
+	tools->map[0] = '+';
 	tools->first = 0;
   if (!(tools->tail = malloc (tools->len * sizeof(int))))
     return (84);
@@ -61,10 +73,13 @@ int algo(t_tools *tools)
 	tools->tail[0] = 0;
   while (tools->tail[tools->first] != tools->len - 1 && tools->tail_size > 0)
     {
-			printf("%s\n", tools->map);
-			usleep(90000);
-			check_wall(tools, tools->tail[tools->first]);
+			check_wall(tools, tools->tail[tools->first], index);
 			remove_to_tail(tools);
     }
+	trace_path(tools, index);
+	epur_map(tools);
+	printf("%s\n", tools->map);
+	free(index);
+	free(tools->tail);
   return (0);
 }

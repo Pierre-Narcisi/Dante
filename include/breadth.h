@@ -5,7 +5,7 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 17:03:33 2017 Pierre Narcisi
-** Last update Sat Apr 29 20:08:17 2017 Pierre Narcisi
+** Last update Tue May  2 16:31:31 2017 Pierre Narcisi
 */
 
 #ifndef _BREA_H
@@ -32,6 +32,7 @@ typedef struct s_tools
 
 int line_len(char *str);
 int algo(t_tools *tools);
+void epur_map(t_tools *tools);
 int parsing(char *str, t_tools *tools);
 
 #endif
