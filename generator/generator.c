@@ -10,13 +10,27 @@
 
 #include "generator.h"
 
+void 	fill_file(int op, t_tools* tools)
+{
+	int	lines;
+
+	lines = 0;
+	while (tools->maze[lines])
+	{
+		write(op, tools->maze[lines], my_strlen(tools->maze[lines]));
+		write(op, "\n", 1);
+		lines++;
+	}
+}
+
 void 	generator(t_tools* tools)
 {
 	int	lines;
 	int	x;
+	int	op;
 
 	lines = 0;
-	if ((open("maze.txt", O_CREAT | O_TRUNC | O_RDWR, 0666)) == -1)
+	if (( op = open("maze.txt", O_CREAT | O_TRUNC | O_RDWR, 0666)) == -1)
 		exit (84);
 	if ((tools->maze = malloc(sizeof(char *) * (tools->y + 1))) == NULL)
 		exit (84);
@@ -34,5 +48,6 @@ void 	generator(t_tools* tools)
 		lines++;
 	}
 	algo(tools);
+	fill_file(op, tools);
 	print_tab(tools->maze);
 }

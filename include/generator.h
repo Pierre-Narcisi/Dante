@@ -1,20 +1,21 @@
 /*
-** generator.h for dante in /home/byliarus/work/AI/dante/include/
+** my.h for my.h in /home/axel/projects/progress/dante/include/
 **
-** Made by Pierre Narcisi
-** Login   <pierre.nacisi@epitech.eu>
+** Made by Axel Vandenabeele
+** Login   <axel.vandenabeele@epitech.eu>
 **
-** Started on  Fri Apr 28 16:47:48 2017 Pierre Narcisi
-** Last update Fri Apr 28 16:49:18 2017 Pierre Narcisi
+** Started on  Thu Apr 20 12:23:31 2017 Axel Vandenabeele
+** Last update Fri Apr 28 14:55:37 2017 Axel Vandenabeele
 */
 
-#ifndef GEN_H
-# define GEN_H
+#ifndef MY_H
+# define MY_H
 
 #include <stdlib.h>
 #include <fcntl.h>
 #include <string.h>
 #include <stdio.h>
+#include <unistd.h>
 
 typedef struct	s_pos
 {
@@ -75,5 +76,10 @@ t_tools	*set_struct(char **av, int ac);
 my_strlen.c
 */
 int	my_strlen(char *str);
+
+/*
+fill_files
+*/
+void 	fill_file(int op, t_tools* tools);
 
 #endif /*MY_H*/
