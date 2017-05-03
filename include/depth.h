@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:23:31 2017 Axel Vandenabeele
-** Last update Tue May  2 14:58:10 2017 Axel Vandenabeele
+** Last update Wed May  3 11:11:04 2017 Axel Vandenabeele
 */
 
 #ifndef MY_H
@@ -21,8 +21,6 @@ typedef struct	s_pos
 {
 	int	x;
 	int y;
-	int	prev_x;
-	int	prev_y;
 }								t_pos;
 
 typedef struct	s_tools
@@ -36,11 +34,12 @@ typedef struct	s_list
 {
 	struct s_list *next;
 	struct s_list *prev;
-	t_pos*	pos;
+	t_pos	pos;
 }								t_list;
 
 /*
-printf*/
+printf
+*/
 int	my_printf(char *str, ...);
 
 /*
@@ -58,14 +57,14 @@ void 	print_tab(char **tab);
 solver.c
 */
 void 	solver(t_tools* tools);
-void 	find_way(t_pos* pos, t_list* list, t_tools* tools);
+void 	find_way(t_pos pos, t_list* list, t_tools* tools);
 int	nbr_way(t_tools* tools, int y, int x);
 
 /*
 structs.c
 */
 t_tools	*set_tools(int op, char **av);
-t_pos		*set_pos();
+t_pos		set_pos();
 
 /*
 my_strlen.c

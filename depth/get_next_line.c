@@ -5,10 +5,10 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Jan 15 12:13:44 2017 Axel Vandenabeele
-** Last update Mon May  1 16:01:43 2017 Axel Vandenabeele
+** Last update Wed May  3 12:53:34 2017 Axel Vandenabeele
 */
 
-#include "solver.h"
+#include "depth.h"
 #include "get_next_line.h"
 
 char		*my_realloc(char *str, int i)

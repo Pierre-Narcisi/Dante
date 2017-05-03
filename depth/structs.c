@@ -5,11 +5,10 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Mon May  1 15:39:47 2017 Axel Vandenabeele
-** Last update Tue May  2 16:21:32 2017 Axel Vandenabeele
+** Last update Wed May  3 12:54:08 2017 Axel Vandenabeele
 */
 
-#include <stdio.h>
-#include "solver.h"
+#include "depth.h"
 
 int	set_dir(char **maze, int dir)
 {
@@ -37,14 +36,12 @@ void 	malloc_maze(t_tools* tools)
 		exit (84);
 }
 
-t_pos	*set_pos()
+t_pos	set_pos()
 {
-	t_pos	*pos;
+	t_pos	pos;
 
-	if (!(pos = malloc(sizeof(t_pos))))
-		exit (84);
-	pos->x = 0;
-	pos->y = 0;
+	pos.x = 0;
+	pos.y = 0;
 	return (pos);
 }
 
