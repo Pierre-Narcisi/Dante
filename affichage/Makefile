@@ -5,7 +5,7 @@
 ## Login   <axel.vandenabeele@epitech.eu>
 ##
 ## Started on  Fri Apr 28 14:40:42 2017 Axel Vandenabeele
-## Last update Wed May  3 12:47:21 2017 Axel Vandenabeele
+## Last update Thu May  4 10:34:17 2017 Axel Vandenabeele
 ##
 
 NAME	=	render
@@ -23,7 +23,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 CFLAGS	=	-W -Wall -Werror -Wextra -I../include -lc_graph_prog
 
-LIB	= -L../lib -lmy_printf
+LIB	= -L../lib
 
 all	:	$(NAME)
 
