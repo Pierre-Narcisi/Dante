@@ -5,10 +5,10 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Mon Mar 20 22:18:32 2017 Axel Vandenabeele
-** Last update Mon May  1 16:03:20 2017 Axel Vandenabeele
+** Last update Wed May  3 12:53:43 2017 Axel Vandenabeele
 */
 
-#include "solver.h"
+#include "depth.h"
 
 char	*my_strcpy_range(char *str, int strt, int end)
 {

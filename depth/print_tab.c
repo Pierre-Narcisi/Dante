@@ -5,10 +5,10 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Mar 26 00:15:38 2017 Axel Vandenabeele
-** Last update Mon May  1 16:27:26 2017 Axel Vandenabeele
+** Last update Wed May  3 12:53:55 2017 Axel Vandenabeele
 */
 
-#include "solver.h"
+#include "depth.h"
 
 void 	print_tab(char **tab)
 {
