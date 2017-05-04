@@ -28,9 +28,8 @@ CFLAGS	=	-W -Wall -Werror -Wextra -I../include -g
 
 all	:	$(NAME)
 
-$(NAME)	: $(OBJS)
-					$(CC) $(OBJS) $(CFLAGS) -o $(NAME) $(LIB)
-					$(RM) $(OBJS)
+$(NAME)	: 	$(OBJS)
+		$(CC) $(OBJS) $(CFLAGS) -o $(NAME)
 
 clean	:
 		$(RM) $(NAME)

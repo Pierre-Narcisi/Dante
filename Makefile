@@ -22,6 +22,7 @@ all	:
 			$(MAKEDEPTH)
 			$(MAKEASTAR)
 
+
 clean	:
 			$(MAKEGENERATOR) clean
 			$(MAKEBREATH) clean
@@ -29,9 +30,9 @@ clean	:
 			$(MAKEASTAR) clean
 
 fclean	:
-					$(MAKEBREATH) fclean
-					$(MAKEDEPTH) fclean
-					$(MAKEASTAR) fclean
-					$(MAKEGENERATOR) fclean
+			$(MAKEBREATH) fclean
+			$(MAKEDEPTH) fclean
+			$(MAKEASTAR) fclean
+			$(MAKEGENERATOR) fclean
 
-re	: fclean all
+re	: 		fclean all
