@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Fri Apr 28 14:30:51 2017 Axel Vandenabeele
-** Last update Thu May  4 10:58:46 2017 Axel Vandenabeele
+** Last update Wed May 10 16:51:02 2017 Axel Vandenabeele
 */
 
 #include "afficher.h"
@@ -52,6 +52,7 @@ void 	make_render(t_my_framebuffer* fb, t_size* size)
 				draw_square(fb, size, sfWhite);
 				size->width += size->size;
 			i++;
+			size->pass = 1;
 		}
 		size->height += size->size;
 	}

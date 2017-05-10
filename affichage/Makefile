@@ -23,21 +23,16 @@ OBJS	=	$(SRCS:.c=.o)
 
 CFLAGS	=	-W -Wall -Werror -Wextra -I../include -lc_graph_prog
 
-LIB	= -L../lib
-
 all	:	$(NAME)
 
 $(NAME)	: $(OBJS)
-					make -C ../lib re
-					$(CC) $(OBJS) $(CFLAGS) -o $(NAME) $(LIB)
+					$(CC) $(OBJS) $(CFLAGS) -o $(NAME)
 					$(RM) $(OBJS)
 
 clean	:
-		make -C ../lib clean
 		$(RM) $(NAME)
 
 fclean	:	clean
-		make -C ../lib fclean
-		$(RM) $(OBJS)
+			$(RM) $(OBJS)
 
 re	:	fclean all

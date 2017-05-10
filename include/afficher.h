@@ -11,8 +11,8 @@
 #ifndef AFFICHER_H
 # define AFFICHER_H
 
-#define MAZE_X 50
-#define MAZE_Y 50
+#define MAZE_X 21
+#define MAZE_Y 21
 #define SCREEN_WIDTH MAZE_X * 10
 #define SCREEN_HEIGHT MAZE_Y * 10
 #define ABS(x) (((x) > 0) ? (x) : (-(x)))

@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:23:31 2017 Axel Vandenabeele
-** Last update Fri Apr 28 14:55:37 2017 Axel Vandenabeele
+** Last update Wed May 10 17:09:11 2017 Axel Vandenabeele
 */
 
 #ifndef MY_H
@@ -56,10 +56,6 @@ algo.c
 void algo(t_tools *tools);
 
 /*
-solver.c
-*/
-
-/*
 generator.c
 */
 void find_exit(t_tools *tools);
@@ -80,6 +76,6 @@ int	my_strlen(char *str);
 /*
 fill_files
 */
-void 	fill_file(int op, t_tools* tools);
+void 	fill_file(t_tools* tools);
 
 #endif /*MY_H*/
