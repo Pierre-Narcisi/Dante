@@ -5,7 +5,7 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 17:27:26 2017 Pierre Narcisi
-** Last update Tue May  2 16:30:59 2017 Pierre Narcisi
+** Last update Wed May 10 15:35:28 2017 Pierre Narcisi
 */
 
 #include "breadth.h"
@@ -71,7 +71,8 @@ int algo(t_tools *tools)
     return (84);
 	tools->tail_size = 1;
 	tools->tail[0] = 0;
-  while (tools->tail[tools->first] != tools->len - 1 && tools->tail_size > 0)
+  while (tools->tail[tools->first] != tools->len - 1 &&
+		 tools->tail_size > tools->first)
     {
 			check_wall(tools, tools->tail[tools->first], index);
 			remove_to_tail(tools);

@@ -5,7 +5,7 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 15:54:31 2017 Pierre Narcisi
-** Last update Mon May  1 17:01:15 2017 Pierre Narcisi
+** Last update Wed May 10 15:42:24 2017 Pierre Narcisi
 */
 
 #include "breadth.h"
@@ -29,6 +29,8 @@ int parsing(char *str, t_tools *tools)
   if (stat(str, &file) == -1)
     return (84);
   if (!(fd = open(str, O_RDWR)))
+    return (84);
+  if (file.st_size == 0)
     return (84);
   if ((res = mmap(NULL, file.st_size,
     PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0)) == MAP_FAILED)

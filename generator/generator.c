@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:18:59 2017 Axel Vandenabeele
-** Last update Wed May  3 12:56:26 2017 Axel Vandenabeele
+** Last update Wed May 10 15:20:06 2017 Pierre Narcisi
 */
 
 #include "generator.h"
@@ -18,7 +18,8 @@ void 	fill_file(int op, t_tools* tools)
 	while (tools->maze[lines])
 	{
 		write(op, tools->maze[lines], my_strlen(tools->maze[lines]));
-		write(op, "\n", 1);
+		if (lines != tools->y - 1)
+			write(op, "\n", 1);
 		lines++;
 	}
 }

@@ -5,10 +5,24 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 15:54:25 2017 Pierre Narcisi
-** Last update Tue May  2 16:19:10 2017 Pierre Narcisi
+** Last update Wed May 10 15:45:51 2017 Pierre Narcisi
 */
 
 #include "breadth.h"
+
+int check_map(t_tools *tools)
+{
+  int i;
+
+  i = 0;
+  while (tools->map[i])
+  {
+  if (tools->map[i] != '*' && tools->map[i] != 'X' && tools->map[i] != '\n')
+    return (-1);
+  i++;
+  }
+  return (0);
+}
 
 int main(int ac, char **av)
 {
@@ -20,7 +34,10 @@ int main(int ac, char **av)
     return (0);
   else
     {
-      parsing(av[1], tools);
+      if (parsing(av[1], tools) == 84)
+        return (84);
+      if (check_map(tools) == -1)
+        return (84);
       algo(tools);
       munmap(tools->map, tools->len);
     }
