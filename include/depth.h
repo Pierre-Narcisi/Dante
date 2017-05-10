@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:23:31 2017 Axel Vandenabeele
-** Last update Wed May  3 11:11:04 2017 Axel Vandenabeele
+** Last update Wed May 10 15:56:58 2017 Axel Vandenabeele
 */
 
 #ifndef MY_H
@@ -75,5 +75,11 @@ int	my_strlen(char *str);
 my_strcpy.c
 */
 char	*my_strcpy(char *str);
+
+/*
+set_maze.c
+*/
+void 	replace_tab(t_tools* tools, char src, char dest);
+int		his_env(t_tools* tools, int lines, int cols);
 
 #endif /*MY_H*/

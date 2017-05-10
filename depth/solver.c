@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Mon May  1 15:41:51 2017 Axel Vandenabeele
-** Last update Wed May  3 12:55:08 2017 Axel Vandenabeele
+** Last update Wed May 10 15:42:50 2017 Axel Vandenabeele
 */
 
 #include "depth.h"
@@ -44,27 +44,27 @@ t_pos	choose_pos(t_pos pos, t_tools* tools)
 {
 	if (pos.x < tools->x && tools->maze[pos.y][pos.x + 1] == '*')
 	{
-		tools->maze[pos.y][pos.x] = '+';
+		tools->maze[pos.y][pos.x] = 'O';
 		pos.x++;
-		tools->maze[pos.y][pos.x] = '+';
+		tools->maze[pos.y][pos.x] = 'O';
 	}
 	else if (pos.y < tools->y && tools->maze[pos.y + 1][pos.x] == '*')
 	{
-		tools->maze[pos.y][pos.x] = '+';
+		tools->maze[pos.y][pos.x] = 'O';
 		pos.y++;
-		tools->maze[pos.y][pos.x] = '+';
+		tools->maze[pos.y][pos.x] = 'O';
 	}
 	else if (pos.x > 0 && tools->maze[pos.y][pos.x - 1] == '*')
 	{
-		tools->maze[pos.y][pos.x] = '+';
+		tools->maze[pos.y][pos.x] = 'O';
 		pos.x--;
-		tools->maze[pos.y][pos.x] = '+';
+		tools->maze[pos.y][pos.x] = 'O';
 	}
 	else if (pos.y > 0 && tools->maze[pos.y - 1][pos.x] == '*')
 	{
-		tools->maze[pos.y][pos.x] = '+';
+		tools->maze[pos.y][pos.x] = 'O';
 		pos.y--;
-		tools->maze[pos.y][pos.x] = '+';
+		tools->maze[pos.y][pos.x] = 'O';
 	}
 	return (pos);
 }
@@ -75,21 +75,15 @@ void 	find_way(t_pos pos, t_list* list, t_tools* tools)
 
 	while (pos.x < tools->x || pos.y < tools->y)
 	{
-		if ((way = nbr_way(tools, pos.y, pos.x)) == 0)
+		while (list->prev != NULL && (way = nbr_way(tools, pos.y, pos.x)) == 0)
 		{
-			while (list->prev != NULL && (way = nbr_way(tools, pos.y, pos.x)) == 0)
-			{
-				tools->maze[pos.y][pos.x] = '-';
-				list = list->prev;
-				pos = list->prev->pos;
-				free(list->next);
-			}
+			tools->maze[pos.y][pos.x] = '-';
+			list = list->prev;
+			pos = list->prev->pos;
+			free(list->next);
 		}
-		else
-		{
-			pos = choose_pos(pos, tools);
-			list = create_node(pos, list);
-		}
+		pos = choose_pos(pos, tools);
+		list = create_node(pos, list);
 	}
 }
 
@@ -101,5 +95,6 @@ void 	solver(t_tools* tools)
 	pos = set_pos();
 	list = create_node(pos, NULL);
 	find_way(pos, list, tools);
+	replace_tab(tools, '-', '*');
 	print_tab(tools->maze);
 }

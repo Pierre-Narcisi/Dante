@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:18:59 2017 Axel Vandenabeele
-** Last update Wed May  3 12:56:26 2017 Axel Vandenabeele
+** Last update Wed May 10 15:50:51 2017 Axel Vandenabeele
 */
 
 #include "generator.h"
@@ -45,8 +45,10 @@ void 	generator(t_tools* tools)
 			tools->maze[lines][x] = 'X';
 			x++;
 		}
+		tools->maze[lines][x] = '\0';
 		lines++;
 	}
+	tools->maze[lines] = NULL;
 	algo(tools);
 	fill_file(op, tools);
 }
