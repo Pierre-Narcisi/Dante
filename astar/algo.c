@@ -5,7 +5,7 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 17:27:26 2017 Pierre Narcisi
-** Last update Wed May  3 17:49:06 2017 Pierre Narcisi
+** Last update Thu May  4 16:58:24 2017 Pierre Narcisi
 */
 
 #include "astar.h"
@@ -17,7 +17,10 @@ void add_to_tail(t_tools *tools, int i)
 
 	poids = tools->len - (i / tools->x + i % tools->x);
 	while (tools->tail->next != NULL && tools->tail->poids < poids)
+	{
+		printf("%d\n", tools->tail->pos);
 		tools->tail = tools->tail->next;
+	}
 	if (tools->tail->prev != NULL)
 	{
 		l_new = create_node(i, poids,	tools->tail->prev);

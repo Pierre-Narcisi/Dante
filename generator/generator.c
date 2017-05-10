@@ -18,7 +18,8 @@ void 	fill_file(int op, t_tools* tools)
 	while (tools->maze[lines])
 	{
 		write(op, tools->maze[lines], my_strlen(tools->maze[lines]));
-		write(op, "\n", 1);
+		if (lines != tools->y - 1)
+			write(op, "\n", 1);
 		lines++;
 	}
 }
