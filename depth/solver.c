@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Mon May  1 15:41:51 2017 Axel Vandenabeele
-** Last update Wed May 10 15:42:50 2017 Axel Vandenabeele
+** Last update Wed May 10 16:26:20 2017 Axel Vandenabeele
 */
 
 #include "depth.h"
@@ -44,27 +44,27 @@ t_pos	choose_pos(t_pos pos, t_tools* tools)
 {
 	if (pos.x < tools->x && tools->maze[pos.y][pos.x + 1] == '*')
 	{
-		tools->maze[pos.y][pos.x] = 'O';
+		tools->maze[pos.y][pos.x] = 'o';
 		pos.x++;
-		tools->maze[pos.y][pos.x] = 'O';
+		tools->maze[pos.y][pos.x] = 'o';
 	}
 	else if (pos.y < tools->y && tools->maze[pos.y + 1][pos.x] == '*')
 	{
-		tools->maze[pos.y][pos.x] = 'O';
+		tools->maze[pos.y][pos.x] = 'o';
 		pos.y++;
-		tools->maze[pos.y][pos.x] = 'O';
+		tools->maze[pos.y][pos.x] = 'o';
 	}
 	else if (pos.x > 0 && tools->maze[pos.y][pos.x - 1] == '*')
 	{
-		tools->maze[pos.y][pos.x] = 'O';
+		tools->maze[pos.y][pos.x] = 'o';
 		pos.x--;
-		tools->maze[pos.y][pos.x] = 'O';
+		tools->maze[pos.y][pos.x] = 'o';
 	}
 	else if (pos.y > 0 && tools->maze[pos.y - 1][pos.x] == '*')
 	{
-		tools->maze[pos.y][pos.x] = 'O';
+		tools->maze[pos.y][pos.x] = 'o';
 		pos.y--;
-		tools->maze[pos.y][pos.x] = 'O';
+		tools->maze[pos.y][pos.x] = 'o';
 	}
 	return (pos);
 }
@@ -75,7 +75,8 @@ void 	find_way(t_pos pos, t_list* list, t_tools* tools)
 
 	while (pos.x < tools->x || pos.y < tools->y)
 	{
-		while (list->prev != NULL && (way = nbr_way(tools, pos.y, pos.x)) == 0)
+		while (list->prev != NULL &&
+				(way = nbr_way(tools, pos.y, pos.x)) == 0)
 		{
 			tools->maze[pos.y][pos.x] = '-';
 			list = list->prev;
