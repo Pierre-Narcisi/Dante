@@ -95,4 +95,10 @@ my_strdup.c
 */
 char	*my_strdup(char *src, char *dest);
 
+/*
+my_free.c
+*/
+void 	free_tab(t_tools* tools);
+void 	free_list(t_list* list);
+
 #endif /*MY_H*/

@@ -5,7 +5,7 @@
 ## Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 ##
 ## Started on  Mon Jan 16 10:14:39 2017 Axel Vandenabeele
-## Last update Wed May 10 17:33:51 2017 Axel Vandenabeele
+## Last update Thu May 11 18:07:15 2017 Axel Vandenabeele
 ##
 
 NAME	=	solver
@@ -23,6 +23,7 @@ SRCS	=	main.c \
 				print_tab.c \
 				set_maze.c \
 				my_strdup.c \
+				my_free.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
