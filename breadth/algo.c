@@ -5,7 +5,7 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 17:27:26 2017 Pierre Narcisi
-** Last update Wed May 10 15:35:28 2017 Pierre Narcisi
+** Last update Thu May 11 13:44:25 2017 Pierre Narcisi
 */
 
 #include "breadth.h"
@@ -79,7 +79,10 @@ int algo(t_tools *tools)
     }
 	trace_path(tools, index);
 	epur_map(tools);
-	printf("%s\n", tools->map);
+	if (tools->tail_size <= tools->first)
+		printf("no solution found\n");
+	else
+		printf("%s\n", tools->map);
 	free(index);
 	free(tools->tail);
   return (0);
