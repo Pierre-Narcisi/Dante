@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Mon May  1 15:41:51 2017 Axel Vandenabeele
-** Last update Thu May 11 13:50:56 2017 Axel Vandenabeele
+** Last update Thu May 11 16:49:25 2017 Axel Vandenabeele
 */
 
 #include "depth.h"
@@ -102,6 +102,6 @@ void 	solver(t_tools* tools)
 	pos = set_pos();
 	list = create_node(pos, NULL);
 	find_way(pos, list, tools);
-	print_tab(tools->maze);
 	replace_tab(tools, '-', '*');
+	print_tab(tools->maze);
 }
