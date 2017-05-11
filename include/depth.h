@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:23:31 2017 Axel Vandenabeele
-** Last update Wed May 10 15:56:58 2017 Axel Vandenabeele
+** Last update Thu May 11 14:35:16 2017 Pierre Narcisi
 */
 
 #ifndef MY_H
@@ -76,6 +76,10 @@ my_strcpy.c
 */
 char	*my_strcpy(char *str);
 
+/*
+my_strdup.c
+*/
+char	*my_strdup(char *src, char *dest);
 /*
 set_maze.c
 */
