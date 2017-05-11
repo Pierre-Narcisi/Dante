@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Dec 28 01:14:23 2016 Axel Vandenabeele
-** Last update Thu May  4 10:59:08 2017 Axel Vandenabeele
+** Last update Wed May 10 16:43:47 2017 Axel Vandenabeele
 */
 
 #include "afficher.h"
@@ -58,7 +58,8 @@ void  		main_while(t_my_framebuffer* fb, sfTexture* texture,
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(window);
 	sfRenderWindow_clear(window, sfBlack);
-	sfTexture_updateFromPixels(texture, fb->pixels, fb->width, fb->height, 0, 0);
+	sfTexture_updateFromPixels(texture,
+		fb->pixels, fb->width, fb->height, 0, 0);
   sfRenderWindow_drawSprite(window, sprite, NULL);
   sfRenderWindow_display(window);
 }

@@ -5,7 +5,7 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Tue May  2 17:46:08 2017 Pierre Narcisi
-** Last update Wed May  3 15:06:53 2017 Pierre Narcisi
+** Last update Wed May 10 16:33:57 2017 Axel Vandenabeele
 */
 
 #ifndef _AST_H
@@ -48,6 +48,6 @@ int line_len(char *str);
 int algo(t_tools *tools);
 void epur_map(t_tools *tools);
 int parsing(char *str, t_tools *tools);
-t_list *create_node(int pos, int poids,t_list *node);
+t_list *create_node(int pos, int poids, t_list *node);
 
 #endif
