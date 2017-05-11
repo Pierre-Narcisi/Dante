@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Mon May  1 15:39:47 2017 Axel Vandenabeele
-** Last update Wed May  3 12:54:08 2017 Axel Vandenabeele
+** Last update Wed May 10 17:48:13 2017 Axel Vandenabeele
 */
 
 #include "depth.h"
@@ -30,12 +30,6 @@ void 	fill_maze(t_tools* tools, char *str)
 	lines++;
 }
 
-void 	malloc_maze(t_tools* tools)
-{
-	if (!(tools->maze = malloc(sizeof(char *) * (tools->y + 1))))
-		exit (84);
-}
-
 t_pos	set_pos()
 {
 	t_pos	pos;
@@ -54,9 +48,13 @@ t_tools	*set_tools(int	op, char **av)
 		exit (84);
 	tools->y = 0;
 	while ((str = get_next_line((op))) != NULL)
+	{
 		tools->y++;
+		free(str);
+	}
 	close(op);
-	malloc_maze(tools);
+	if (!(tools->maze = malloc(sizeof(char *) * (tools->y + 1))))
+		exit (84);
 	op = open(av[1], O_RDONLY);
 	while ((str = get_next_line((op))) != NULL)
 		fill_maze(tools, str);

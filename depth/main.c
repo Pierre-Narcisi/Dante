@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Mon May  1 15:26:51 2017 Axel Vandenabeele
-** Last update Wed May  3 12:53:38 2017 Axel Vandenabeele
+** Last update Wed May 10 17:39:07 2017 Axel Vandenabeele
 */
 
 #include "depth.h"
@@ -29,5 +29,7 @@ int main(int ac, char **av)
 	op = pre_requis(ac, av);
 	tools = set_tools(op, av);
   solver(tools);
+	free(tools->maze);
+	free(tools);
   return (0);
 }

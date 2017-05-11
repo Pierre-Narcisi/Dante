@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Mon May  1 15:41:51 2017 Axel Vandenabeele
-** Last update Wed May 10 16:26:20 2017 Axel Vandenabeele
+** Last update Thu May 11 13:50:56 2017 Axel Vandenabeele
 */
 
 #include "depth.h"
@@ -80,12 +80,18 @@ void 	find_way(t_pos pos, t_list* list, t_tools* tools)
 		{
 			tools->maze[pos.y][pos.x] = '-';
 			list = list->prev;
-			pos = list->prev->pos;
+			pos = list->pos;
 			free(list->next);
 		}
 		pos = choose_pos(pos, tools);
 		list = create_node(pos, list);
 	}
+	while (list->prev != NULL)
+	{
+		free(list->next);
+		list = list->prev;
+	}
+	free(list);
 }
 
 void 	solver(t_tools* tools)
@@ -96,6 +102,6 @@ void 	solver(t_tools* tools)
 	pos = set_pos();
 	list = create_node(pos, NULL);
 	find_way(pos, list, tools);
-	replace_tab(tools, '-', '*');
 	print_tab(tools->maze);
+	replace_tab(tools, '-', '*');
 }
