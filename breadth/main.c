@@ -5,7 +5,7 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 15:54:25 2017 Pierre Narcisi
-** Last update Wed May 10 15:45:51 2017 Pierre Narcisi
+** Last update Sat May 13 18:02:57 2017 Pierre Narcisi
 */
 
 #include "breadth.h"
@@ -36,8 +36,8 @@ int main(int ac, char **av)
     {
       if (parsing(av[1], tools) == 84)
         return (84);
-      if (check_map(tools) == -1)
-        return (84);
+      // if (check_map(tools) == -1)
+      //   return (84);
       algo(tools);
       munmap(tools->map, tools->len);
     }

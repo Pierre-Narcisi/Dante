@@ -5,7 +5,7 @@
 ## Login   <pierre.nacisi@epitech.eu>
 ##
 ## Started on  Fri Apr 28 17:20:11 2017 Pierre Narcisi
-## Last update Wed May  3 15:07:08 2017 Pierre Narcisi
+## Last update Fri May 12 16:05:18 2017 Pierre Narcisi
 ##
 
 NAME	=	solver
@@ -19,6 +19,7 @@ SRCS	=	main.c \
 				algo.c	\
 				list.c	\
 				epur.c	\
+				handle_list.c	\
 
 OBJS	=	$(SRCS:.c=.o)
 
