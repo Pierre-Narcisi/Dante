@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Wed May 10 15:38:41 2017 Axel Vandenabeele
-** Last update Wed May 10 16:26:54 2017 Axel Vandenabeele
+** Last update Sat May 13 17:05:18 2017 Axel Vandenabeele
 */
 
 #include "depth.h"
@@ -25,7 +25,8 @@ int	his_env(t_tools* tools, int lines, int cols)
 		if (tools->maze[lines - 1] && tools->maze[lines - 1][cols] == 'o')
 			i++;
 	if (cols > 0)
-		if (tools->maze[lines][cols - 1] && tools->maze[lines][cols - 1] == 'o')
+		if (tools->maze[lines][cols - 1] &&
+				tools->maze[lines][cols - 1] == 'o')
 			i++;
 	if (i >= 2)
 		return (0);
