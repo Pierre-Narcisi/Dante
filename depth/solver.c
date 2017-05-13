@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Mon May  1 15:41:51 2017 Axel Vandenabeele
-** Last update Thu May 11 18:06:59 2017 Axel Vandenabeele
+** Last update Sat May 13 17:22:49 2017 Axel Vandenabeele
 */
 
 #include "depth.h"
@@ -75,6 +75,12 @@ void 	find_way(t_pos pos, t_list* list, t_tools* tools)
 
 	while (pos.x < tools->x || pos.y < tools->y)
 	{
+		if (pos.x == 0 && pos.y == 0 && nbr_way(tools, pos.y, pos.x) == 0)
+		{
+			replace_tab(tools, 'o', '*');
+			printf("no solution found\n");
+			exit (84);
+		}
 		while (list->prev != NULL &&
 				(way = nbr_way(tools, pos.y, pos.x)) == 0)
 		{
