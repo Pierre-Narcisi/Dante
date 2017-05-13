@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:23:31 2017 Axel Vandenabeele
-** Last update Wed May 10 17:09:11 2017 Axel Vandenabeele
+** Last update Sat May 13 19:17:35 2017 Pierre Narcisi
 */
 
 #ifndef MY_H
@@ -48,7 +48,7 @@ int	my_isnum(char *str);
 /*
 print_tab.c
 */
-void 	print_tab(char **tab);
+void 	print_tab(char **tab, t_tools *tools);
 
 /*
 algo.c
