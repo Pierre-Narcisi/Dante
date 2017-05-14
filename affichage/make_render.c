@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Fri Apr 28 14:30:51 2017 Axel Vandenabeele
-** Last update Wed May 10 16:51:02 2017 Axel Vandenabeele
+** Last update Sun May 14 21:40:16 2017 Axel Vandenabeele
 */
 
 #include "afficher.h"
@@ -22,7 +22,7 @@ t_size	*set_size()
 	int size2;
 	t_size	*size;
 
-	if (!(size = malloc(sizeof(char))))
+	if (!(size = malloc(sizeof(t_size))))
 		exit (84);
 	size->size = SCREEN_HEIGHT / MAZE_Y;
 	size2 = SCREEN_WIDTH / MAZE_X;
@@ -34,13 +34,10 @@ t_size	*set_size()
 
 void 	make_render(t_my_framebuffer* fb, t_size* size)
 {
-	int	op;
 	int	i;
 	char	*str;
 
-	if ((op = open("../generator/maze.txt", O_RDONLY)) == -1)
-		exit (84);
-	while ((str = get_next_line((op))) != NULL)
+	while ((str = get_next_line((0))) != NULL)
 	{
 		i = 0;
 		size->width = 0;

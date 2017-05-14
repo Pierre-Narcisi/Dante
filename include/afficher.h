@@ -5,14 +5,14 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Fri Apr 28 15:32:57 2017 Axel Vandenabeele
-** Last update Tue May  2 16:31:33 2017 Axel Vandenabeele
+** Last update Sun May 14 21:55:58 2017 Axel Vandenabeele
 */
 
 #ifndef AFFICHER_H
 # define AFFICHER_H
 
-#define MAZE_X 21
-#define MAZE_Y 21
+#define MAZE_X 11
+#define MAZE_Y 11
 #define SCREEN_WIDTH MAZE_X * 10
 #define SCREEN_HEIGHT MAZE_Y * 10
 #define ABS(x) (((x) > 0) ? (x) : (-(x)))
@@ -56,6 +56,11 @@ make_render.c
 void 	make_render(t_my_framebuffer* fb, t_size* size);
 t_size	*set_size();
 void 	reset_size(t_size* size);
+
+/*
+my_strdup.c
+*/
+char	*my_strdup(char *src, char *dest);
 
 /*
 my_affiche.c
