@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 14:28:04 2017 Axel Vandenabeele
-** Last update Sat May 13 19:17:43 2017 Pierre Narcisi
+** Last update Sun May 14 22:36:27 2017 Pierre Narcisi
 */
 
 #include "generator.h"
@@ -13,7 +13,7 @@
 
 t_list		*create_node(t_pos pos, t_list *node)
 {
-  t_list	*list; 
+  t_list	*list;
 
   if (!(list = malloc(sizeof(t_list))))
     return (NULL);

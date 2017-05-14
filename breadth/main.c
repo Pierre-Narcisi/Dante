@@ -5,7 +5,7 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 15:54:25 2017 Pierre Narcisi
-** Last update Sun May 14 22:22:55 2017 Pierre Narcisi
+** Last update Sun May 14 22:33:52 2017 Pierre Narcisi
 */
 
 #include "breadth.h"
@@ -17,7 +17,8 @@ int		check_map(t_tools *tools)
   i = 0;
   while (tools->map[i])
     {
-      if (tools->map[i] != '*' && tools->map[i] != 'X' && tools->map[i] != '\n')
+      if (tools->map[i] != '*' &&
+       tools->map[i] != 'X' && tools->map[i] != '\n')
 	return (-1);
       i++;
     }
