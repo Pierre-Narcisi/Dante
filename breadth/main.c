@@ -5,7 +5,7 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 15:54:25 2017 Pierre Narcisi
-** Last update Sat May 13 18:02:57 2017 Pierre Narcisi
+** Last update Sun May 14 19:28:23 2017 Pierre Narcisi
 */
 
 #include "breadth.h"
@@ -29,15 +29,12 @@ int main(int ac, char **av)
   t_tools *tools;
 
   if (!(tools = malloc (sizeof (t_tools))))
-    return (84);
+    return (0);
   if (ac != 2)
     return (0);
   else
     {
-      if (parsing(av[1], tools) == 84)
-        return (84);
-      // if (check_map(tools) == -1)
-      //   return (84);
+      parsing(av[1], tools);
       algo(tools);
       munmap(tools->map, tools->len);
     }
