@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Mon May  1 15:39:47 2017 Axel Vandenabeele
-** Last update Thu May 11 18:09:53 2017 Axel Vandenabeele
+** Last update Sun May 14 18:30:55 2017 Axel Vandenabeele
 */
 
 #include "depth.h"
@@ -21,13 +21,27 @@ int	set_dir(char **maze, int dir)
 
 void 	fill_maze(t_tools* tools, char *str)
 {
-	static int	lines = 0;
+	int	lines = 0;
+	int	i = 0;
+	int	count;
 
-	if (lines == 0)
-		tools->x = my_strlen(str) - 1;
-	if (!(tools->maze[lines] = my_strcpy(str)))
-		exit (84);
-	lines++;
+	while (lines <= tools->y)
+	{
+		count = 0;
+		if (!(tools->maze[lines] = malloc(sizeof(char) * (tools->x + 1))))
+			exit (84);
+		while (count < tools->x)
+		{
+			if (str[i] == '\n')
+				i++;
+			tools->maze[lines][count] = str[i];
+			i++;
+			count++;
+		}
+		tools->maze[lines][count] = '\0';
+		lines++;
+	}
+	tools->maze[lines] = NULL;
 }
 
 t_pos	set_pos()
@@ -39,26 +53,42 @@ t_pos	set_pos()
 	return (pos);
 }
 
+void 	set_size(t_tools* tools, char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[tools->x] != '\n')
+		tools->x++;
+	while (str[i])
+	{
+		if (str[i] == '\n')
+		tools->y++;
+		i++;
+	}
+	if ((str[my_strlen(str) - 1] == '\n'))
+		tools->y--;
+}
+
 t_tools	*set_tools(int	op, char **av)
 {
 	t_tools	*tools;
 	char		*str;
+	struct stat st;
+	int			rd;
 
 	if (!(tools = malloc(sizeof(t_tools))))
 		exit (84);
-	tools->y = 0;
-	while ((str = get_next_line((op))) != NULL)
-	{
-		tools->y++;
-		free(str);
-	}
-	close(op);
+	tools->x = 0;
+	stat(av[1], &st);
+	if (!(str = malloc(sizeof(char) * st.st_size + 1)))
+		exit (84);
+	if ((rd = read(op, str, st.st_size)) <= 0)
+		exit (84);
+	set_size(tools, str);
 	if (!(tools->maze = malloc(sizeof(char *) * (tools->y + 1))))
 		exit (84);
-	op = open(av[1], O_RDONLY);
-	while ((str = get_next_line((op))) != NULL)
-		fill_maze(tools, str);
-	tools->maze[tools->y] = NULL;
-	tools->y--;
+	fill_maze(tools, str);
+	tools->x--;
 	return (tools);
 }

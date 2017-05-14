@@ -5,11 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:23:31 2017 Axel Vandenabeele
-<<<<<<< HEAD
-** Last update Wed May 10 17:34:17 2017 Axel Vandenabeele
-=======
-** Last update Thu May 11 14:35:16 2017 Pierre Narcisi
->>>>>>> 2c547e1e4d1c7147ed9f3168e04f7a2ab2fb2b9c
+** Last update Sun May 14 18:32:13 2017 Axel Vandenabeele
 */
 
 #ifndef MY_H
@@ -20,6 +16,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
 typedef struct	s_pos
 {

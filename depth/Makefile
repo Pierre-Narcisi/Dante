@@ -5,7 +5,7 @@
 ## Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 ##
 ## Started on  Mon Jan 16 10:14:39 2017 Axel Vandenabeele
-## Last update Thu May 11 18:07:15 2017 Axel Vandenabeele
+## Last update Sat May 13 18:17:59 2017 Axel Vandenabeele
 ##
 
 NAME	=	solver
@@ -27,7 +27,7 @@ SRCS	=	main.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
-CFLAGS	=	-W -Wall -Werror -Wextra -I../include -O3
+CFLAGS	=	-W -Wall -Werror -Wextra -I../include -Ofast
 
 all	:	$(NAME)
 
