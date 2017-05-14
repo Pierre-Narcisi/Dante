@@ -10,15 +10,15 @@
 
  #include "breadth.h"
 
- void epur_map(t_tools *tools)
- {
- 	int i;
+void	epur_map(t_tools *tools)
+{
+  int	i;
 
- 	i = 0;
- 	while (tools->map[i])
- 	{
- 		if (tools->map[i] == '+')
- 			tools->map[i] = '*';
- 		i++;
- 	}
- }
+  i = 0;
+  while (tools->map[i])
+    {
+      if (tools->map[i] == '+')
+	tools->map[i] = '*';
+      i++;
+    }
+}

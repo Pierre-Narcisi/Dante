@@ -10,18 +10,18 @@
 
 #include "generator.h"
 
-void 	pre_requis(int ac)
+void	pre_requis(int ac)
 {
-	if (ac != 3 && ac != 4)
-		exit (84);
+  if (ac != 3 && ac != 4)
+    exit (84);
 }
 
-int	main(int ac, char **av)
+int		main(int ac, char **av)
 {
-	t_tools* tools;
+  t_tools*	tools;
 
-	pre_requis(ac);
-	tools = set_struct(av, ac);
-	generator(tools);
-	return (0);
+  pre_requis(ac);
+  tools = set_struct(av, ac);
+  generator(tools);
+  return (0);
 }

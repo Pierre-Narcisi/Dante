@@ -10,80 +10,80 @@
 
 #include "breadth.h"
 
-void add_to_tail(t_tools *tools, int i)
+void	add_to_tail(t_tools *tools, int i)
 {
-	tools->map[i] = '+';
-	tools->tail[tools->tail_size] = i;
-	tools->tail_size++;
+  tools->map[i] = '+';
+  tools->tail[tools->tail_size] = i;
+  tools->tail_size++;
 }
 
-void remove_to_tail(t_tools *tools)
+void	remove_to_tail(t_tools *tools)
 {
-	tools->first++;
+  tools->first++;
 }
 
-void check_wall(t_tools *tools, int i, int *index)
+void	check_wall(t_tools *tools, int i, int *index)
 {
-	if (i + 1 < tools->len && tools->map[i + 1] == '*')
-		{
-			index[i + 1] = i;
-			add_to_tail(tools, i + 1);
-		}
-	if (i - 1 >= 0 && tools->map[i - 1] == '*')
-		{
-			index[i - 1] = i;
-			add_to_tail(tools, i - 1);
-		}
-	if (i + tools->x < tools->len && tools->map[i + tools->x] == '*')
-		{
-			index[i + tools->x] = i;
-			add_to_tail(tools, i + tools->x);
-		}
-	if (i - tools->x >= 0 && tools->map[i - tools->x] == '*')
-		{
-			index[i - tools->x] = i;
-			add_to_tail(tools, i - tools->x);
-		}
+  if (i + 1 < tools->len && tools->map[i + 1] == '*')
+    {
+      index[i + 1] = i;
+      add_to_tail(tools, i + 1);
+    }
+  if (i - 1 >= 0 && tools->map[i - 1] == '*')
+    {
+      index[i - 1] = i;
+      add_to_tail(tools, i - 1);
+    }
+  if (i + tools->x < tools->len && tools->map[i + tools->x] == '*')
+    {
+      index[i + tools->x] = i;
+      add_to_tail(tools, i + tools->x);
+    }
+  if (i - tools->x >= 0 && tools->map[i - tools->x] == '*')
+    {
+      index[i - tools->x] = i;
+      add_to_tail(tools, i - tools->x);
+    }
 }
 
-void trace_path(t_tools *tools, int *index)
+void	trace_path(t_tools *tools, int *index)
 {
-	int i;
+  int	i;
 
-	tools->map[tools->len - 1] = 'o';
-	i = tools->len - 1;
-	while (i != 0)
-	{
-		i = index[i];
-		tools->map[i] = 'o';
-	}
+  tools->map[tools->len - 1] = 'o';
+  i = tools->len - 1;
+  while (i != 0)
+    {
+      i = index[i];
+      tools->map[i] = 'o';
+    }
 }
 
-int algo(t_tools *tools)
+int	algo(t_tools *tools)
 {
-	int *index;
+  int	*index;
 
-	if (!(index = malloc (tools->len * sizeof(int))))
-		return (84);
-	tools->map[0] = '+';
-	tools->first = 0;
+  if (!(index = malloc (tools->len * sizeof(int))))
+    return (84);
+  tools->map[0] = '+';
+  tools->first = 0;
   if (!(tools->tail = malloc (tools->len * sizeof(int))))
     return (84);
-	tools->tail_size = 1;
-	tools->tail[0] = 0;
+  tools->tail_size = 1;
+  tools->tail[0] = 0;
   while (tools->tail[tools->first] != tools->len - 1 &&
-		 tools->tail_size > tools->first)
+	 tools->tail_size > tools->first)
     {
-			check_wall(tools, tools->tail[tools->first], index);
-			remove_to_tail(tools);
+      check_wall(tools, tools->tail[tools->first], index);
+      remove_to_tail(tools);
     }
-	trace_path(tools, index);
-	epur_map(tools);
-	if (tools->tail_size <= tools->first)
-		printf("no solution found\n");
-	else
-		printf("%s\n", tools->map);
-	free(index);
-	free(tools->tail);
+  trace_path(tools, index);
+  epur_map(tools);
+  if (tools->tail_size <= tools->first)
+    printf("no solution found\n");
+  else
+    printf("%s\n", tools->map);
+  free(index);
+  free(tools->tail);
   return (0);
 }

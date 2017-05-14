@@ -10,20 +10,20 @@
 
 #include "generator.h"
 
-t_tools	*set_struct(char **av, int ac)
+t_tools		*set_struct(char **av, int ac)
 {
-	t_tools* tools;
+  t_tools	*tools;
 
-	if ((tools = malloc(sizeof(t_tools))) == NULL)
-		exit (84);
-	tools->p = 0;
-	if (my_isnum(av[1]) == 1)
-		exit (84);
-	if (my_isnum(av[2]) == 1)
-		exit (84);
-	if (ac == 4 && strcmp(av[3], "perfect") == 0)
-		tools->p = 1;
-	tools->x = atoi(av[1]);
-	tools->y = atoi(av[2]);
-	return (tools);
+  if ((tools = malloc(sizeof(t_tools))) == NULL)
+    exit (84);
+  tools->p = 0;
+  if (my_isnum(av[1]) == 1)
+    exit (84);
+  if (my_isnum(av[2]) == 1)
+    exit (84);
+  if (ac == 4 && strcmp(av[3], "perfect") == 0)
+    tools->p = 1;
+  tools->x = atoi(av[1]);
+  tools->y = atoi(av[2]);
+  return (tools);
 }

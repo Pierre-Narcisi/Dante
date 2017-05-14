@@ -14,12 +14,12 @@ CC	=	gcc
 
 RM =		rm -f
 
-SRCS	=	main.c \
-				parsing.c	\
-				algo.c	\
-				list.c	\
-				epur.c	\
-				handle_list.c	\
+SRCS	=	main.c 		\
+		parsing.c	\
+		algo.c		\
+		list.c		\
+		epur.c		\
+		handle_list.c	\
 
 OBJS	=	$(SRCS:.c=.o)
 

@@ -15,13 +15,13 @@ CC	=	gcc
 RM =		rm -f
 
 SRCS	=	main.c \
-				generator.c \
-				my_is.c \
-				print_tab.c \
-				algo.c \
-				structs.c \
-				my_strlen.c \
-				check_gen.c	\
+		generator.c \
+		my_is.c \
+		print_tab.c \
+		algo.c \
+		structs.c \
+		my_strlen.c \
+		check_gen.c	\
 
 OBJS	=	$(SRCS:.c=.o)
 

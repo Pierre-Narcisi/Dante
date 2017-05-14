@@ -10,9 +10,9 @@
 
 #include "astar.h"
 
-int main(int ac, char **av)
+int		main(int ac, char **av)
 {
-  t_tools *tools;
+  t_tools	*tools;
 
   if (!(tools = malloc (sizeof (t_tools))))
     return (84);
@@ -24,6 +24,6 @@ int main(int ac, char **av)
       algo(tools);
       munmap(tools->map, tools->len);
     }
-    free(tools);
+  free(tools);
   return (0);
 }

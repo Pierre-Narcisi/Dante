@@ -12,14 +12,14 @@
 
 void 	print_tab(char **tab, t_tools *tools)
 {
-	int	i;
+  int	i;
 
-	i = 0;
-	while (tab[i])
-	{
-		printf("%s", tab[i]);
-		if (i < tools->y - 1)
-			printf("\n");
-		i++;
-	}
+  i = 0;
+  while (tab[i])
+    {
+      printf("%s", tab[i]);
+      if (i < tools->y - 1)
+	printf("\n");
+      i++;
+    }
 }

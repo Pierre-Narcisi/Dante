@@ -10,9 +10,9 @@
 
 #include "astar.h"
 
-int line_len(char *str)
+int	line_len(char *str)
 {
-  int i;
+  int	i;
 
   i = 0;
   while (str[i] != '\n' && str[i] != '\0')
@@ -20,18 +20,18 @@ int line_len(char *str)
   return (i);
 }
 
-int parsing(char *str, t_tools *tools)
+int		parsing(char *str, t_tools *tools)
 {
-  int fd;
-  struct stat file;
-  void *res;
+  int		fd;
+  struct stat	file;
+  void		*res;
 
   if (stat(str, &file) == -1)
     return (84);
   if (!(fd = open(str, O_RDWR)))
     return (84);
   if ((res = mmap(NULL, file.st_size,
-    PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0)) == MAP_FAILED)
+       PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0)) == MAP_FAILED)
     return (84);
   tools->map = (char*)res;
   tools->x = line_len(tools->map) + 1;

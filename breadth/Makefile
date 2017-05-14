@@ -15,9 +15,9 @@ CC	=	gcc
 RM =		rm -f
 
 SRCS	=	main.c \
-				parsing.c	\
-				epur.c	\
-				algo.c	\
+		parsing.c	\
+		epur.c	\
+		algo.c	\
 
 OBJS	=	$(SRCS:.c=.o)
 

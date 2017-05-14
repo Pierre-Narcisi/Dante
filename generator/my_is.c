@@ -12,17 +12,17 @@
 
 int	my_isnum(char *str)
 {
-	int	i;
-	int	count;
+  int	i;
+  int	count;
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-			count++;
-		if ((count = my_strlen(str)))
-			return (0);
-		i++;
-	}
-	return (1);
+  i = 0;
+  while (str[i])
+    {
+      if (str[i] >= '0' && str[i] <= '9')
+	count++;
+      if ((count = my_strlen(str)))
+	return (0);
+      i++;
+    }
+  return (1);
 }

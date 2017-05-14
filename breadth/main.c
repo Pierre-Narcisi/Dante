@@ -5,28 +5,28 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 15:54:25 2017 Pierre Narcisi
-** Last update Sun May 14 19:28:23 2017 Pierre Narcisi
+** Last update Sun May 14 22:22:55 2017 Pierre Narcisi
 */
 
 #include "breadth.h"
 
-int check_map(t_tools *tools)
+int		check_map(t_tools *tools)
 {
-  int i;
+  int		i;
 
   i = 0;
   while (tools->map[i])
-  {
-  if (tools->map[i] != '*' && tools->map[i] != 'X' && tools->map[i] != '\n')
-    return (-1);
-  i++;
-  }
+    {
+      if (tools->map[i] != '*' && tools->map[i] != 'X' && tools->map[i] != '\n')
+	return (-1);
+      i++;
+    }
   return (0);
 }
 
-int main(int ac, char **av)
+int		main(int ac, char **av)
 {
-  t_tools *tools;
+  t_tools	*tools;
 
   if (!(tools = malloc (sizeof (t_tools))))
     return (0);
@@ -34,10 +34,12 @@ int main(int ac, char **av)
     return (0);
   else
     {
-      parsing(av[1], tools);
+      if (parsing(av[1], tools) == 84)
+        return (84);
       algo(tools);
+      printf("%s\n", tools->map);
       munmap(tools->map, tools->len);
     }
-    free(tools);
+  free(tools);
   return (0);
 }

@@ -10,15 +10,15 @@
 
 #include "astar.h"
 
-t_list *create_node(int pos, int poids, t_list *node)
+t_list		*create_node(int pos, int poids, t_list *node)
 {
-	t_list *list;
+  t_list	*list;
 
-	if (!(list = malloc(sizeof(t_list))))
-		return (NULL);
-	list->pos = pos;
-	list->poids = poids;
-	list->prev = node;
-	list->next = NULL;
-	return (list);
+  if (!(list = malloc(sizeof(t_list))))
+    return (NULL);
+  list->pos = pos;
+  list->poids = poids;
+  list->prev = node;
+  list->next = NULL;
+  return (list);
 }

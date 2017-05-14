@@ -12,44 +12,44 @@
 
 void 	fill_file(t_tools* tools)
 {
-	int	lines;
-	int	op;
+  int	lines;
+  int	op;
 
-	lines = 0;
-	if ((op = open("maze.txt", O_CREAT | O_TRUNC | O_RDWR, 0666)) == -1)
-		exit (84);
-	while (tools->maze[lines])
-	{
-		write(op, tools->maze[lines], my_strlen(tools->maze[lines]));
-		if (lines != tools->y - 1)
-			write(op, "\n", 1);
-		lines++;
-	}
+  lines = 0;
+  if ((op = open("maze.txt", O_CREAT | O_TRUNC | O_RDWR, 0666)) == -1)
+    exit (84);
+  while (tools->maze[lines])
+    {
+      write(op, tools->maze[lines], my_strlen(tools->maze[lines]));
+      if (lines != tools->y - 1)
+	write(op, "\n", 1);
+      lines++;
+    }
 }
 
-void 	generator(t_tools* tools)
+void  	generator(t_tools* tools)
 {
-	int	lines;
-	int	x;
+  int	lines;
+  int	x;
 
-	lines = 0;
-	if ((tools->maze = malloc(sizeof(char *) * (tools->y + 1))) == NULL)
-		exit (84);
-	while (lines < tools->y)
+  lines = 0;
+  if ((tools->maze = malloc(sizeof(char *) * (tools->y + 1))) == NULL)
+    exit (84);
+  while (lines < tools->y)
+    {
+      x = 0;
+      if ((tools->maze[lines] = malloc(sizeof(char) *
+				       (tools->x + 1))) == NULL)
+	exit (84);
+      while (x < tools->x)
 	{
-		x = 0;
-		if ((tools->maze[lines] = malloc(sizeof(char) *
-				(tools->x + 1))) == NULL)
-			exit (84);
-		while (x < tools->x)
-		{
-			tools->maze[lines][x] = 'X';
-			x++;
-		}
-		tools->maze[lines][x] = '\0';
-		lines++;
+	  tools->maze[lines][x] = 'X';
+	  x++;
 	}
-	tools->maze[lines] = NULL;
-	algo(tools);
-	fill_file(tools);
+      tools->maze[lines][x] = '\0';
+      lines++;
+    }
+  tools->maze[lines] = NULL;
+  algo(tools);
+  fill_file(tools);
 }
