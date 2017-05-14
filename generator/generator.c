@@ -5,13 +5,14 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 12:18:59 2017 Axel Vandenabeele
-** Last update Wed May 10 17:09:26 2017 Axel Vandenabeele
+** Last update Sun May 14 21:50:16 2017 Axel Vandenabeele
 */
 
 #include "generator.h"
 
 void 	fill_file(t_tools* tools)
 {
+<<<<<<< HEAD
   int	lines;
   int	op;
 
@@ -25,6 +26,18 @@ void 	fill_file(t_tools* tools)
 	write(op, "\n", 1);
       lines++;
     }
+=======
+	int	lines;
+
+	lines = 0;
+	while (tools->maze[lines])
+	{
+		write(1, tools->maze[lines], my_strlen(tools->maze[lines]));
+		if (lines != tools->y - 1)
+			write(1, "\n", 1);
+		lines++;
+	}
+>>>>>>> 135219345ebcf61805f0054cf583d7f5f3760905
 }
 
 void  	generator(t_tools* tools)

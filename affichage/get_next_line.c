@@ -5,52 +5,57 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Jan 15 12:13:44 2017 Axel Vandenabeele
-** Last update Fri Apr 28 16:00:23 2017 Axel Vandenabeele
+** Last update Sun May 14 21:42:14 2017 Axel Vandenabeele
 */
 
-#include "afficher.h"
+#include "depth.h"
 #include "get_next_line.h"
 
-char		*my_realloc(char *str, int i)
+char	*my_realloc(char *str, int i)
 {
-	char	*str_temp;
-	int		p;
+  char	*tmp;
 
-	p = 0;
-	if ((str_temp = malloc(sizeof(char) * (i + 2))) == NULL)
-		return (NULL);
-	while (str[p])
-	{
-		str_temp[p] = str[p];
-		p++;
-	}
-	str_temp[p] = '\0';
-	str_temp[p + 1] = '\0';
-	return (str_temp);
+  if (!(tmp = malloc(sizeof(char) * (i + 2))))
+    return (NULL);
+  tmp = my_strdup(str, tmp);
+  free(str);
+  return (tmp);
 }
 
-char		*get_next_line(const int fd)
+char	*fill_str(char *str, char *tmp, int rd, const int fd)
 {
   int 	i;
-  char	*str;
-  char	buff[1];
-  int		rd;
 
-	i = 0;
-	if ((rd = read(fd, buff, 1)) <= 0)
-		return (NULL);
-  if ((str = malloc(sizeof(char) * (READ_SIZE + 1))) == NULL)
-		return (NULL);
-  while (buff[0] != '\n' && rd >= 0)
-  {
-    str[i] = buff[0];
-    i++;
-		str[i] = '\0';
-    if ((str = my_realloc(str, i)) == NULL)
-			return (NULL);
-    if ((rd = read(fd, buff, 1)) == 0)
-			break;
-  }
+  i = 0;
+  while (tmp[0] != '\n' && rd > 0)
+    {
+      str[i++] = tmp[0];
+      str[i] = '\0';
+      if (!(str = my_realloc(str, i)))
+				return (NULL);
+      rd = read(fd, tmp, 1);
+    }
   str[i] = '\0';
-	return (str);
+  return (str);
+}
+
+char	*get_next_line(const int fd)
+{
+  int	rd;
+  char	*str;
+  char	*tmp;
+
+  if (!(tmp = malloc(sizeof(char) * (READ_SIZE + 1))))
+    return (NULL);
+  if ((rd = read(fd, tmp, 1)) <= 0)
+    {
+      free(tmp);
+      return (NULL);
+    }
+  if (!(str = malloc(sizeof(char) * (READ_SIZE + 1))))
+    return (NULL);
+  if (!(str = fill_str(str, tmp, rd, fd)))
+    return (NULL);
+  free(tmp);
+  return (str);
 }

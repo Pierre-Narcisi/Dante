@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Wed Dec 28 01:14:23 2016 Axel Vandenabeele
-** Last update Wed May 10 16:43:47 2017 Axel Vandenabeele
+** Last update Sun May 14 21:32:18 2017 Axel Vandenabeele
 */
 
 #include "afficher.h"
@@ -73,7 +73,7 @@ int									main()
 	t_size*	size;
 
 	size = set_size();
-  window = create_window("Generator", SCREEN_WIDTH, SCREEN_HEIGHT);
+  window = create_window("Dante", SCREEN_WIDTH, SCREEN_HEIGHT);
   sprite = sfSprite_create();
   texture = sfTexture_create(SCREEN_WIDTH, SCREEN_HEIGHT);
   fb = my_framebuffer_create(SCREEN_WIDTH, SCREEN_HEIGHT);

@@ -5,7 +5,7 @@
 ## Login   <axel.vandenabeele@epitech.eu>
 ##
 ## Started on  Fri Apr 28 14:40:42 2017 Axel Vandenabeele
-## Last update Thu May  4 10:34:17 2017 Axel Vandenabeele
+## Last update Sun May 14 21:41:26 2017 Axel Vandenabeele
 ##
 
 NAME	=	render
@@ -18,6 +18,7 @@ SRCS	= main_afficher.c \
 				make_render.c \
 				get_next_line.c \
 				my_afficher.c \
+				my_strdup.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
