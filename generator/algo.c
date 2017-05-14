@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Thu Apr 20 14:28:04 2017 Axel Vandenabeele
-** Last update Mon May  1 19:42:46 2017 Axel Vandenabeele
+** Last update Sat May 13 19:17:43 2017 Pierre Narcisi
 */
 
 #include "generator.h"
@@ -84,4 +84,5 @@ void 	algo(t_tools *tools)
 	find_exit(tools);
 	if (tools->p != 1)
 		make_unperfect(tools);
+	print_tab(tools->maze, tools);
 }

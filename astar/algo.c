@@ -5,91 +5,10 @@
 ** Login   <pierre.nacisi@epitech.eu>
 **
 ** Started on  Fri Apr 28 17:27:26 2017 Pierre Narcisi
-** Last update Thu May 11 12:22:03 2017 Pierre Narcisi
+** Last update Sat May 13 00:36:11 2017 Pierre Narcisi
 */
 
 #include "astar.h"
-
-void print_list_pos(t_tools *tools)
-{
-	t_list *tmp;
-
-	tmp = tools->tail;
-	while (tools->tail != NULL)
-		{
-			printf("%d, - ", tools->tail->pos);
-			tools->tail = tools->tail->next;
-		}
-	tools->tail = tmp;
-}
-
-void add_to_tail(t_tools *tools, int i)
-{
-	t_list *l_new;
-	int poids;
-
-	poids = tools->len - (i / tools->x + i % tools->x);
-	if (tools->tail->poids < poids)
-		{
-			l_new = create_node(i, poids, NULL);
-			l_new->next = tools->tail->next;
-			tools->tail->prev = l_new;
-			tools->tail = l_new;
-		}
-	else
-	{
-		while (tools->tail->next != NULL && tools->tail->next->poids < poids)
-			tools->tail = tools->tail->next;
-		l_new = create_node(i, poids, tools->tail);
-		l_new->next = tools->tail->next;
-		tools->tail->next = l_new;
-	}
-
-	tools->map[i] = '+';
-	tools->tail_size++;
-	while (tools->tail->prev != NULL)
-		tools->tail = tools->tail->prev;
-}
-
-// void add_to_tail(t_tools *tools, int i)
-// {
-// 	t_list *l_new;
-// 	int poids;
-//
-// 	poids = tools->len - (i / tools->x + i % tools->x);
-// 	while (tools->tail->next != NULL && tools->tail->poids < poids)
-// 	{
-// 		printf("%d\n", tools->tail->pos);
-// 		tools->tail = tools->tail->next;
-// 	}
-// 	if (tools->tail->prev != NULL)
-// 	{
-// 		l_new = create_node(i, poids,	tools->tail->prev);
-// 		tools->tail->prev->next = l_new;
-// 	}
-// 	else
-// 		l_new = create_node(i, poids,	NULL);
-// 	l_new->next = tools->tail;
-// 	tools->tail->prev = l_new;
-// 	tools->map[i] = '+';
-// 	tools->tail_size++;
-// 	while (tools->tail->prev != NULL)
-// 		tools->tail = tools->tail->prev;
-// }
-
-void remove_to_tail(t_tools *tools)
-{
-	t_list *tmp;
-
-	if (tools->tail->next != NULL)
-	{
-		tmp = tools->tail;
-		tools->tail = tools->tail->next;
-		tools->tail->prev = NULL;
-		free(tmp);
-	}
-	tools->tail_size--;
-}
 
 void check_wall(t_tools *tools, int i, int *index)
 {
@@ -132,23 +51,23 @@ int algo(t_tools *tools)
 {
 	int *index;
 	int tmp;
+	t_list *list;
 
 	if (!(index = malloc (tools->len * sizeof(int))))
 		return (84);
 	tools->map[0] = '+';
 	tools->first = 0;
+	tmp = 0;
   if (!(tools->tail = malloc (sizeof(t_list))))
     return (84);
 	tools->tail_size = 1;
 	tools->tail = create_node(0, tools->len, NULL);
-  while (tools->tail->pos != tools->len - 1 && tools->tail_size > 0)
+  while (tmp != tools->len - 1 && tools->tail_size > 0)
     {
-			print_list_pos(tools);
-			usleep(40000);
-			printf("%s\n%d\n", tools->map, tools->tail_size);
-			tmp = tools->tail->pos;
+			list = choose_node(tools);
+			tmp = list->pos;
 			check_wall(tools, tmp, index);
-			remove_to_tail(tools);
+			remove_to_tail(list);
     }
 	trace_path(tools, index);
 	epur_map(tools);
