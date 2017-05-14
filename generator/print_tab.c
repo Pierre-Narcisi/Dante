@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu@epitech.eu>
 **
 ** Started on  Sun Mar 26 00:15:38 2017 Axel Vandenabeele
-** Last update Sun May 14 19:56:33 2017 Axel Vandenabeele
+** Last update Sun May 14 22:39:25 2017 Axel Vandenabeele
 */
 
 #include "generator.h"
@@ -14,16 +14,6 @@ void 	print_tab(char **tab, t_tools *tools)
 {
   int	i;
 
-<<<<<<< HEAD
-  i = 0;
-  while (tab[i])
-    {
-      printf("%s", tab[i]);
-      if (i < tools->y - 1)
-	printf("\n");
-      i++;
-    }
-=======
 	i = 0;
 	while (tab[i])
 	{
@@ -32,5 +22,4 @@ void 	print_tab(char **tab, t_tools *tools)
 			write(0, "\n", 1);
 		i++;
 	}
->>>>>>> 135219345ebcf61805f0054cf583d7f5f3760905
 }
