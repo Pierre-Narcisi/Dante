@@ -5,38 +5,45 @@
 # Login   <axel.vandenabeele@epitech.eu>
 #
 # Started on  Sun May 14 18:34:26 2017 Axel Vandenabeele
-# Last update Sun May 14 19:35:17 2017 Axel Vandenabeele
+# Last update Sun May 14 21:02:01 2017 Axel Vandenabeele
 #
 
-echo -n "all or one ? "
+if [ $# != 4 ]
+	then
+		echo "use : ./perf.sh <nbr_of_lines> <nbr_of_cols> <is_perfect> <file>"
+		exit
+fi
+
+make > /dev/null
+echo ""
+./generator/generator $1 $2 $3 > $4
+
+echo -n -e "\n\nall or one ? "
 read methode
 
 if [ $methode = all ]
 	then
-		cd ./depth
-			echo "[depth]"
-			time ./solver ../generator/maze.txt > log
-			echo ""
-		cd ../breadth
-			echo "[breadth]"
-			time ./solver ../generator/maze.txt > log
+			echo -e "\n\033[31m[depth]\033[0m\n"
+			time ./depth/solver ./$4
+			echo -e "\n\033[31m[breadth]\033[0m\n"
+			time ./breadth/solver ./$4
 elif [ $methode = one ]
 	then
 		echo -n "which one ? "
 		read solver
 	if [ $solver = depth ]
 		then
-			cd ./depth
-				echo "[depth]"
-				time ./solver ../generator/maze.txt > log
+				echo -e "\n\033[31m[depth]\033[0m\n"
+				time ./depth/solver ./$4
 	elif [ $solver = breadth ]
 		then
-			cd ./breadth
-				echo "[breadth]"
-				time ./solver ../generator/maze.txt > log
+				echo -e "\033[31m[breadth]\033[0m\n"
+				time ./breadth/solver ./$4
 	else
-		echo "no Match"
+		echo -e "\nno Match"
+		exit
 	fi
 else
-	echo "not an option"
+	echo -e "\nnot an option"
+	exit
 fi

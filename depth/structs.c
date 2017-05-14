@@ -5,7 +5,7 @@
 ** Login   <axel.vandenabeele@epitech.eu>
 **
 ** Started on  Mon May  1 15:39:47 2017 Axel Vandenabeele
-** Last update Sun May 14 18:30:55 2017 Axel Vandenabeele
+** Last update Sun May 14 20:45:02 2017 Axel Vandenabeele
 */
 
 #include "depth.h"
@@ -21,10 +21,12 @@ int	set_dir(char **maze, int dir)
 
 void 	fill_maze(t_tools* tools, char *str)
 {
-	int	lines = 0;
-	int	i = 0;
+	int	lines;
+	int	i;
 	int	count;
 
+	lines = 0;
+	i = 0;
 	while (lines <= tools->y)
 	{
 		count = 0;
@@ -63,7 +65,7 @@ void 	set_size(t_tools* tools, char *str)
 	while (str[i])
 	{
 		if (str[i] == '\n')
-		tools->y++;
+			tools->y++;
 		i++;
 	}
 	if ((str[my_strlen(str) - 1] == '\n'))
@@ -80,13 +82,15 @@ t_tools	*set_tools(int	op, char **av)
 	if (!(tools = malloc(sizeof(t_tools))))
 		exit (84);
 	tools->x = 0;
+	tools->y = 0;
 	stat(av[1], &st);
-	if (!(str = malloc(sizeof(char) * st.st_size + 1)))
+	if (!(str = malloc(sizeof(char) * (st.st_size + 1))))
 		exit (84);
 	if ((rd = read(op, str, st.st_size)) <= 0)
 		exit (84);
+	str[st.st_size] = '\0';
 	set_size(tools, str);
-	if (!(tools->maze = malloc(sizeof(char *) * (tools->y + 1))))
+	if (!(tools->maze = malloc(sizeof(char *) * (tools->y + 2))))
 		exit (84);
 	fill_maze(tools, str);
 	tools->x--;
